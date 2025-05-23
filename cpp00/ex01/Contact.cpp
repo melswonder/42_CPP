@@ -6,12 +6,28 @@
 /*   By: hirwatan <hirwatan@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 11:38:07 by hirwatan          #+#    #+#             */
-/*   Updated: 2025/05/22 19:08:30 by hirwatan         ###   ########.fr       */
+/*   Updated: 2025/05/23 14:31:05 by hirwatan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 #include <cstdlib>
+
+void Contact::init(void)
+{
+	std::cin.ignore();
+	this->_firstName = this->_getinput("please imput you first name: ");
+	this->_lastName = this->_getinput("please imput you last name: ");
+	this->_nickname = this->_getinput("please imput you nick name: ");
+	this->_phonenumber = this->_getinput("please imput you phonenumber: ");
+	this->_darkestsecret = this->_getinput("please imput you darkestsecret: ");
+	std::cout << std::endl;
+}
+
+void Contact::setindex(int i)
+{
+	this->_index = i;
+}
 
 std::string Contact::_getinput(std::string str) const
 {
@@ -39,18 +55,33 @@ std::string Contact::_getinput(std::string str) const
 	return (input);
 }
 
-void Contact::init(void)
+
+std::string Contact::_printlen(std::string str) const
 {
-	std::cin.ignore();
-	this->_firstName = this->_getinput("please imput you first name: ");
-	this->_lastName = this->_getinput("please imput you last name: ");
-	this->_nickname = this->_getinput("please imput you nick name: ");
-	this->_phonenumber = this->_getinput("please imput you phonenumber: ");
-	this->_darkestsecret = this->_getinput("please imput you darkestsecret: ");
+	if (str.length() > 10)
+		return (str.substr(0, 9) + ".");
+	return (str);
+}
+
+void Contact::display(int i) const
+{
+	std::cout << std::endl;
+	std::cout << "!!!!!CONTACT #" << i << "!!!!!" << std::endl;
+	std::cout << "First Name:\t" << this->_firstName << std::endl; 
+	std::cout << "Last Name:\t" << this->_lastName << std::endl; 
+	std::cout << "Nickname:\t" << this->_nickname << std::endl;
 	std::cout << std::endl;
 }
 
-void Contact::setindex(int i)
+
+void Contact::view(int i) const
 {
-	this->_index = i;
+	if (this->_firstName.empty() || this->_lastName.empty()
+		|| this->_nickname.empty())
+		return ;
+	std::cout << "|" << std::setw(10) << i << std::flush;
+	std::cout << "|" << std::setw(10) << this->_printlen(this->_firstName) << std::flush;
+	std::cout << "|" << std::setw(10) << this->_printlen(this->_lastName) << std::flush;
+	std::cout << "|" << std::setw(10) << this->_printlen(this->_nickname) << std::flush;
+	std::cout << "|" << std::endl;
 }

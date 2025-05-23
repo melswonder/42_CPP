@@ -6,7 +6,7 @@
 /*   By: hirwatan <hirwatan@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 11:25:29 by hirwatan          #+#    #+#             */
-/*   Updated: 2025/05/22 17:04:31 by hirwatan         ###   ########.fr       */
+/*   Updated: 2025/05/23 11:05:37 by hirwatan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ int	main(void)
 		}
 		else if(input.compare("SEARCH") == 0)
 		{
-			std::cout << "SEARCH" << std::endl;
+			book.printContact();
+			book.SearchBook();
 		}
 		else if(std::cin.eof())
 		{

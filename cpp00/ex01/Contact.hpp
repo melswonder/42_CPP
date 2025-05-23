@@ -6,7 +6,7 @@
 /*   By: hirwatan <hirwatan@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 11:38:03 by hirwatan          #+#    #+#             */
-/*   Updated: 2025/05/22 17:53:21 by hirwatan         ###   ########.fr       */
+/*   Updated: 2025/05/23 14:20:32 by hirwatan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,13 @@ class Contact
 		int			_index;
 
 		std::string _getinput(std::string str) const; //constをつけるから値が変わらん
+		std::string _printlen(std::string str) const; //constをつけるから値が変わらん
 		
 	public:
 		void init(void);
 		void setindex(int i);
+		void view(int i) const;
+		void display(int i) const;
 };
 
 #endif
