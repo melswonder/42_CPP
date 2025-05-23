@@ -1,0 +1,26 @@
+// class Account {
+// private:
+//     static int  _nbAccounts;         // アカウント総数
+//     static int  _totalAmount;        // 総預金額
+//     static int  _totalNbDeposits;    // 総預入回数
+//     static int  _totalNbWithdrawals; // 総引出回数
+
+//     int         _accountIndex;       // 口座番号
+//     int         _amount;             // 残高
+//     int         _nbDeposits;         // 預入回数
+//     int         _nbWithdrawals;      // 引出回数
+
+// public:
+//     Account(int initial_deposit);    // コンストラクタ
+//     ~Account();                      // デストラクタ
+
+//     void    makeDeposit(int deposit);   // 預入
+//     bool    makeWithdrawal(int withdrawal); // 引出
+//     int     checkAmount() const;       // 残高確認
+
+//     static int  getNbAccounts();       // アカウント数取得
+//     static int  getTotalAmount();      // 総預金額取得
+//     static int  getNbDeposits();       // 総預入回数取得
+//     static int  getNbWithdrawals();    // 総引出回数取得
+//     static void displayAccountsInfos(); // 口座情報表示
+// };
