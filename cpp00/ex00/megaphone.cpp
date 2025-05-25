@@ -6,21 +6,12 @@
 /*   By: hirwatan <hirwatan@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 18:45:29 by hirwatan          #+#    #+#             */
-/*   Updated: 2025/05/25 14:04:55 by hirwatan         ###   ########.fr       */
+/*   Updated: 2025/05/25 14:12:34 by hirwatan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <algorithm>
 #include <iostream>
 #include <string>
-
-struct	ToUpper
-{
-	char operator()(char c) const
-	{
-		return (std::toupper(static_cast <unsigned char>(c)));
-	}
-};
 
 int	main(int argc, char *argv[])
 {
@@ -33,7 +24,8 @@ int	main(int argc, char *argv[])
 		for (int i = 1; i < argc; i++)
 		{
 			std::string str(argv[i]);
-			std::transform(str.begin(), str.end(), str.begin(), ToUpper());
+			for(size_t j = 0; j < str.length(); j++)
+				str[j] = std::toupper(static_cast <unsigned char>(str[j]));
 			std:: cout << str;
 			if (i < argc - 1)
 				std::cout << " ";
