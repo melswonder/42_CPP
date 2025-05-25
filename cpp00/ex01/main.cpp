@@ -6,11 +6,10 @@
 /*   By: hirwatan <hirwatan@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 11:25:29 by hirwatan          #+#    #+#             */
-/*   Updated: 2025/05/23 11:05:37 by hirwatan         ###   ########.fr       */
+/*   Updated: 2025/05/25 13:54:14 by hirwatan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <algorithm>
 #include <iostream>
 #include <string>
 #include "PhoneBook.hpp"
@@ -29,10 +28,6 @@ int	main(void)
 		{
 			book.printContact();
 			book.SearchBook();
-		}
-		else if(std::cin.eof())
-		{
-			std::exit(1);
 		}
 		std::cout << "> " << std::flush;
 		std::cin >> input;
