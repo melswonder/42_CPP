@@ -6,7 +6,7 @@
 /*   By: hirwatan <hirwatan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 12:51:11 by hirwatan          #+#    #+#             */
-/*   Updated: 2025/05/28 19:01:26 by hirwatan         ###   ########.fr       */
+/*   Updated: 2025/05/29 16:35:10 by hirwatan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,7 +154,7 @@ Fixed Fixed::operator/(const Fixed &other) const
 {
     if (other.toFloat() == 0)
     {
-        std::cerr << "エラー: ゼロ除算" << std::endl;
+        std::cerr << "Error: Divide by Zero" << std::endl;
         return Fixed(0);
     }
     return Fixed(this->toFloat() / other.toFloat());
