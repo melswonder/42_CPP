@@ -1,29 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hirwatan <hirwatan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/29 17:01:57 by hirwatan          #+#    #+#             */
-/*   Updated: 2025/05/30 15:58:06 by hirwatan         ###   ########.fr       */
+/*   Created: 2025/05/30 19:41:57 by hirwatan          #+#    #+#             */
+/*   Updated: 2025/05/30 19:41:58 by hirwatan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
-#include "ClapTrap.hpp"
-
-int main(void)
-{
-    ClapTrap human1("human1");
-    ClapTrap human2("human2");
-    
-    std::cout << std::endl;
-    human1.attack("human2");
-    human2.takeDamage(5);
-    human2.beRepaired(100);
-    human2.attack("human1");
-    human1.takeDamage(100000000);
-    human1.beRepaired(10);
-}

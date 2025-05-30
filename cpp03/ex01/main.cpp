@@ -6,24 +6,25 @@
 /*   By: hirwatan <hirwatan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 17:01:57 by hirwatan          #+#    #+#             */
-/*   Updated: 2025/05/30 15:58:06 by hirwatan         ###   ########.fr       */
+/*   Updated: 2025/05/30 19:14:11 by hirwatan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
+#include "ScavTrap.hpp"
 #include "ClapTrap.hpp"
 
 int main(void)
 {
-    ClapTrap human1("human1");
-    ClapTrap human2("human2");
-    
-    std::cout << std::endl;
-    human1.attack("human2");
-    human2.takeDamage(5);
-    human2.beRepaired(100);
-    human2.attack("human1");
-    human1.takeDamage(100000000);
+    ScavTrap human1("human1");
+    ScavTrap human2(human1);
+
+    human1.attack("the air");
+    human1.takeDamage(10);
     human1.beRepaired(10);
+    human1.guardGate();
+    human2.beRepaired(100);
+
+    return 0;
 }

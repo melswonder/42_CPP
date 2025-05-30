@@ -6,19 +6,13 @@
 /*   By: hirwatan <hirwatan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 17:01:52 by hirwatan          #+#    #+#             */
-/*   Updated: 2025/05/30 15:55:13 by hirwatan         ###   ########.fr       */
+/*   Updated: 2025/05/30 18:55:52 by hirwatan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap()
-: _name("undefine"), _Hit_Point(10), _Energy_points(10), _Attack_damage(0) 
-{
-    std::cout << "ClapTrap " << _name << " has been created!" << std::endl;
-}
-
-ClapTrap::ClapTrap(const std::string& name)
+ClapTrap::ClapTrap(std::string& name)
 : _name(name), _Hit_Point(10), _Energy_points(10), _Attack_damage(0)
 {
     std::cout << "ClapTrap " << _name << " has been created!" << std::endl;

@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hirwatan <hirwatan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/29 17:01:57 by hirwatan          #+#    #+#             */
-/*   Updated: 2025/05/30 15:58:06 by hirwatan         ###   ########.fr       */
+/*   Created: 2025/05/30 19:42:00 by hirwatan          #+#    #+#             */
+/*   Updated: 2025/05/30 19:47:35 by hirwatan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
+#ifndef FRAGTRAP_HPP
+#define FRAGTRAP_HPP
+
 #include "ClapTrap.hpp"
 
-int main(void)
+class FragTrap : public ClapTrap
 {
-    ClapTrap human1("human1");
-    ClapTrap human2("human2");
-    
-    std::cout << std::endl;
-    human1.attack("human2");
-    human2.takeDamage(5);
-    human2.beRepaired(100);
-    human2.attack("human1");
-    human1.takeDamage(100000000);
-    human1.beRepaired(10);
-}
+public:
+    FragTrap(void);
+    FragTrap(std::string name);
+    FragTrap(const FragTrap &obj);
+    FragTrap &operator=(const FragTrap &obj);
+    ~FragTrap(void);
+    void highFivesGuys(void);
+};
+
+#endif
