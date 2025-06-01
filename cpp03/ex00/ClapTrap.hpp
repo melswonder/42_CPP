@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hirwatan <hirwatan@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: hirwatan <hirwatan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 17:01:54 by hirwatan          #+#    #+#             */
-/*   Updated: 2025/05/30 14:10:18 by hirwatan         ###   ########.fr       */
+/*   Updated: 2025/06/01 12:52:47 by hirwatan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,19 @@
 class ClapTrap
 {
 private:
-    std::string _name;
-    int _Hit_Point;
-    int _Energy_points;
-    int _Attack_damage;
+    std::string  _name;
+    unsigned int _Hit_Point;
+    unsigned int _Energy_points;
+    unsigned int _Attack_damage;
+
+    ClapTrap(); //指定した引数のものしか作れない
 public:
-    ClapTrap();
-    ClapTrap(std::string& name);
-    ClapTrap(const std::string& name);
-    ClapTrap(const ClapTrap&);
+    ClapTrap(std::string name);
     ~ClapTrap();
+
+    ClapTrap(const ClapTrap &);
     ClapTrap &operator=(const ClapTrap &rhs);
+
     void attack(const std::string &target);
     void takeDamage(unsigned int amount);
     void beRepaired(unsigned int amount);

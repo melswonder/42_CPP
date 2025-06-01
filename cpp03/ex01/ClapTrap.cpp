@@ -6,28 +6,28 @@
 /*   By: hirwatan <hirwatan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 17:01:52 by hirwatan          #+#    #+#             */
-/*   Updated: 2025/05/30 18:55:52 by hirwatan         ###   ########.fr       */
+/*   Updated: 2025/06/01 12:56:12 by hirwatan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string& name)
-: _name(name), _Hit_Point(10), _Energy_points(10), _Attack_damage(0)
+ClapTrap::ClapTrap(std::string name)
+    : _name(name), _Hit_Point(10), _Energy_points(10), _Attack_damage(0)
 {
     std::cout << "ClapTrap " << _name << " has been created!" << std::endl;
 }
 
-ClapTrap::ClapTrap(const ClapTrap& other)
-: _name(other._name), _Hit_Point(other._Hit_Point), 
-  _Energy_points(other._Energy_points), _Attack_damage(other._Attack_damage)
+ClapTrap::ClapTrap(const ClapTrap &other)
+    : _name(other._name), _Hit_Point(other._Hit_Point),
+      _Energy_points(other._Energy_points), _Attack_damage(other._Attack_damage)
 {
     std::cout << "ClapTrap " << _name << " has been copied!" << std::endl;
 }
 
-ClapTrap& ClapTrap::operator=(const ClapTrap &rhs)
+ClapTrap &ClapTrap::operator=(const ClapTrap &rhs)
 {
-    if(this != &rhs)
+    if (this != &rhs)
     {
         _name = rhs._name;
         _Hit_Point = rhs._Hit_Point;
@@ -42,7 +42,7 @@ ClapTrap::~ClapTrap()
     std::cout << "ClapTrap " << _name << " has been destroyed." << std::endl;
 }
 
-void ClapTrap::attack(const std::string& target)
+void ClapTrap::attack(const std::string &target)
 {
     if (_Hit_Point <= 0 || _Energy_points <= 0)
     {
@@ -59,7 +59,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 {
     if (_Hit_Point <= 0)
         return;
-    _Hit_Point = (_Hit_Point > static_cast<int>(amount)) ? _Hit_Point - amount : 0;
+    _Hit_Point = (_Hit_Point > static_cast<unsigned int>(amount)) ? _Hit_Point - amount : 0;
     std::cout << "ClapTrap " << _name << " takes " << amount
               << " points of damage! Current HP: " << _Hit_Point << std::endl;
 }

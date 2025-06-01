@@ -6,7 +6,7 @@
 #    By: hirwatan <hirwatan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/29 17:02:00 by hirwatan          #+#    #+#              #
-#    Updated: 2025/05/30 18:38:03 by hirwatan         ###   ########.fr        #
+#    Updated: 2025/06/01 13:24:25 by hirwatan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ OBJS	= $(SECS:.cpp=.o)
 SRCS	= main.cpp\
 		  ClapTrap.cpp\
 		  ScavTrap.cpp\
+		  FragTrap.cpp\
 
 
 all: $(NAME)
