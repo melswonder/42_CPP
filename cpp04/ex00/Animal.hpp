@@ -6,14 +6,13 @@
 /*   By: hirwatan <hirwatan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/01 14:04:24 by hirwatan          #+#    #+#             */
-/*   Updated: 2025/06/01 15:47:02 by hirwatan         ###   ########.fr       */
+/*   Updated: 2025/06/03 15:35:44 by hirwatan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ANIMAL_HPP
 #define ANIMAL_HPP
 #include <string>
-
 
 class Animal
 {

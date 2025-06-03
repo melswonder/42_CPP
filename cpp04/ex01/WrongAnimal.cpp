@@ -6,12 +6,18 @@
 /*   By: hirwatan <hirwatan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/01 16:14:10 by hirwatan          #+#    #+#             */
-/*   Updated: 2025/06/01 16:25:20 by hirwatan         ###   ########.fr       */
+/*   Updated: 2025/06/03 16:03:03 by hirwatan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongAnimal.hpp"
 #include <iostream>
+
+#define NC "\e[0m"
+#define RED "\e[0;31m"
+#define GRN "\e[0;32m"
+#define CYN "\e[0;36m"
+#define REDB "\e[41m"
 
 WrongAnimal::WrongAnimal(void) : _type("WrongAnimal")
 {

@@ -6,7 +6,7 @@
 /*   By: hirwatan <hirwatan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/01 14:03:14 by hirwatan          #+#    #+#             */
-/*   Updated: 2025/06/01 17:33:58 by hirwatan         ###   ########.fr       */
+/*   Updated: 2025/06/03 15:47:53 by hirwatan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,27 @@
 #include <iostream>
 #include <string>
 
+#define NC "\e[0m"
+#define RED "\e[0;31m"
+#define GRN "\e[0;32m"
+#define CYN "\e[0;36m"
+#define REDB "\e[41m"
+
+
 int main( void )
 {
-    std::cout << "--------------- Animal ---------------" << std::endl;
+    
+    std::cout << RED "--------------- Animal ---------------" NC << std::endl;
 
     const Animal* meta = new Animal();
     const Animal* j = new Dog();
     const Animal* i = new Cat();
 
-    std::cout << "J Type: " << j->getType() << " " << std::endl;
-    std::cout << "I Type: " << i->getType() << " " << std::endl;
+    std::cout <<CYN "J Type: " << j->getType() << " " NC<< std::endl;
+    std::cout <<GRN "I Type: " << i->getType() << " " NC<< std::endl;
     i->makeSound();
     meta->makeSound();
+    j->makeSound();
 
     delete  meta;
     delete  j;
