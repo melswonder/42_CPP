@@ -6,19 +6,19 @@
 /*   By: hirwatan <hirwatan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 17:47:38 by hirwatan          #+#    #+#             */
-/*   Updated: 2025/06/05 18:32:40 by hirwatan         ###   ########.fr       */
+/*   Updated: 2025/06/07 16:37:36 by hirwatan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRESIDENTIALPARDONFORM
-#define PRESIDENTIALPARDONFORM
+#ifndef PRESIDENTIALPARDONFORM_HPP
+#define PRESIDENTIALPARDONFORM_HPP
 
 #include <string>
 #include <iostream>
-#include "Form.hpp"
+#include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
-class PresidentialPardonForm : public Form
+class PresidentialPardonForm : public AForm
 {
 private:
     std::string _PPtarget;

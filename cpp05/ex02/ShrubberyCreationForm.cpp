@@ -6,7 +6,7 @@
 /*   By: hirwatan <hirwatan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 17:47:45 by hirwatan          #+#    #+#             */
-/*   Updated: 2025/06/06 12:41:19 by hirwatan         ###   ########.fr       */
+/*   Updated: 2025/06/07 16:21:55 by hirwatan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 #include <filesystem>
 #include <fstream>
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : Form("ShrubberyCreationForm", 145, 137), _SCtarget(target) {}
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &src) : Form(src), _SCtarget(src._SCtarget) {}
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : AForm("ShrubberyCreationForm", 145, 137), _SCtarget(target) {}
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &src) : AForm(src), _SCtarget(src._SCtarget) {}
 ShrubberyCreationForm ::~ShrubberyCreationForm() {}
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &rhs)
 {
@@ -27,9 +27,9 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 void ShrubberyCreationForm::execute(const Bureaucrat &executor) const
 {
     if (this->getIsSigned() == false)
-        throw Form::NosignedException();
+        throw AForm::NosignedException();
     else if (executor.getGrade() > this->getGradeToExecute())
-        throw Form::GradeTooLowException();
+        throw AForm::GradeTooLowException();
 
     std::ofstream file((this->getName() + "_shrubbery").c_str());
     if (file)

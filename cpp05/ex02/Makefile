@@ -6,7 +6,7 @@
 #    By: hirwatan <hirwatan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/29 17:02:00 by hirwatan          #+#    #+#              #
-#    Updated: 2025/06/06 12:44:04 by hirwatan         ###   ########.fr        #
+#    Updated: 2025/06/07 16:43:03 by hirwatan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ FLAGS	= -Wall -Wextra -Werror -std=c++98
 OBJS	= $(SECS:.cpp=.o)
 SRCS	= main.cpp\
 		  Bureaucrat.cpp\
-		  Form.cpp\
+		  AForm.cpp\
 		  PresidentialPardonForm.cpp\
 		  RobotomyRequestForm.cpp\
 		  ShrubberyCreationForm.cpp\

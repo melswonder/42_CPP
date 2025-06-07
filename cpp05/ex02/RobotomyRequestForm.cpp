@@ -6,7 +6,7 @@
 /*   By: hirwatan <hirwatan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 17:47:34 by hirwatan          #+#    #+#             */
-/*   Updated: 2025/06/06 12:28:56 by hirwatan         ###   ########.fr       */
+/*   Updated: 2025/06/07 16:41:26 by hirwatan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 #include <cstdlib>
 #include <ctime>
 
-RobotomyRequestForm::RobotomyRequestForm(const std::string &target) : Form("RobotomyRequestForm", 25, 5), _RRtarget(target) {}
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &src) : Form(src), _RRtarget(src._RRtarget) {}
+RobotomyRequestForm::RobotomyRequestForm(const std::string &target) : AForm("RobotomyRequestForm", 25, 5), _RRtarget(target) {}
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &src) : AForm(src), _RRtarget(src._RRtarget) {}
 RobotomyRequestForm ::~RobotomyRequestForm() {}
 RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &rhs)
 {
@@ -26,10 +26,14 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &r
 
 void RobotomyRequestForm::execute(const Bureaucrat &executor) const
 {
+    if (!this->getIsSigned())
+        throw AForm::NosignedException();
     if (executor.getGrade() > this->getGradeToExecute())
-        throw Form::GradeTooLowException();
+        throw AForm::GradeTooLowException();
+    
+    std::cout << "grrrrrrrrrrrrrrrrrrrrrrr" << std::endl;
     if (rand() % 2 == 0)
-        std::cout << "grrrrrrrrrrr!" << _RRtarget << "has been robotomized" << std::endl;
+        std::cout << _RRtarget << "has been robotomized" << std::endl;
     else
         std::cout << _RRtarget << "the robotomy failed." << std::endl;
 }

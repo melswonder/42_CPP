@@ -6,16 +6,16 @@
 /*   By: hirwatan <hirwatan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 17:47:40 by hirwatan          #+#    #+#             */
-/*   Updated: 2025/06/06 10:59:16 by hirwatan         ###   ########.fr       */
+/*   Updated: 2025/06/07 16:37:33 by hirwatan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ROBOTOMYREQUESTFORM
-#define ROBOTOMYREQUESTFORM
+#ifndef ROBOTOMYREQUESTFORM_HPP
+#define ROBOTOMYREQUESTFORM_HPP
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
-class RobotomyRequestForm: public Form
+class RobotomyRequestForm: public AForm
 {
     private:
     std::string _RRtarget;
