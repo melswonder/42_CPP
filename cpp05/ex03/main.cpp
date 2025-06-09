@@ -6,7 +6,7 @@
 /*   By: hirwatan <hirwatan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 12:33:38 by hirwatan          #+#    #+#             */
-/*   Updated: 2025/06/09 16:10:00 by hirwatan         ###   ########.fr       */
+/*   Updated: 2025/06/09 16:07:13 by hirwatan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "RobotomyRequestForm.hpp"
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
+#include "Intern.hpp"
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
@@ -25,11 +26,12 @@
 #define CYN "\e[0;36m"
 #define REDB "\e[41m"
 
-int main( void )
+int main(void)
 {
-    srand(time(NULL)); //random ni suru
-    try {
-        Bureaucrat bureaucrat("Hanako", 5);// error 200
+    srand(time(NULL)); // random ni suru
+    try
+    {
+        Bureaucrat bureaucrat("Hanako", 5); // error 200
         ShrubberyCreationForm form1("Shrubbery");
         RobotomyRequestForm form2("Robotomy");
         PresidentialPardonForm form3("President");
@@ -47,11 +49,18 @@ int main( void )
         std::cout << "\n--------------- Form 3 ( PresidentialPardonForm ) ---------------" << std::endl;
         bureaucrat.signForm(form3);
         form3.execute(bureaucrat);
-        std::cout << "\n--------------- Form 3 ( executeForm ) ---------------" << std::endl;
-        bureaucrat.executeForm(form1);
-        bureaucrat.executeForm(form2);
-        bureaucrat.executeForm(form3);
-    } catch (std::exception &e) {
+
+        std::cout << "\n--------------- Form 4 ( makeForm ) ---------------" << std::endl;
+        Intern someRandomIntern;
+        AForm *rrf;
+        rrf = someRandomIntern.makeForm("Shrubbery", "Bender");
+        rrf = someRandomIntern.makeForm("Robotomy", "Bender");
+        rrf = someRandomIntern.makeForm("President", "Bender");
+        rrf = someRandomIntern.makeForm("hoge", "Bender");
+        rrf = someRandomIntern.makeForm("hoge2", "Bender");
+    }
+    catch (std::exception &e)
+    {
         std::cout << e.what() << std::endl;
     }
     return 0;
