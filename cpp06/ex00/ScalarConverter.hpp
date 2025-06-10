@@ -6,12 +6,16 @@
 /*   By: hirwatan <hirwatan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 16:26:52 by hirwatan          #+#    #+#             */
-/*   Updated: 2025/06/10 12:01:02 by hirwatan         ###   ########.fr       */
+/*   Updated: 2025/06/10 20:05:30 by hirwatan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
+
+#ifndef SCALARCONVERTER_HPP
+#define SCALARCONVERTER_HPP
+
 
 class ScalarConverter
 {
@@ -38,3 +42,5 @@ private:
 public:
     static void convert(const std::string &literal);
 };
+
+#endif
