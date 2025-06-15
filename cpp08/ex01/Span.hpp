@@ -6,7 +6,7 @@
 /*   By: hirwatan <hirwatan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 19:13:49 by hirwatan          #+#    #+#             */
-/*   Updated: 2025/06/15 11:53:12 by hirwatan         ###   ########.fr       */
+/*   Updated: 2025/06/15 16:33:21 by hirwatan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ public:
 
     Span &operator=(const Span &);
     void addNumber(int num);
-    void addNumber(std::vector<int>::const_iterator &lhs, std::vector<int>::const_iterator &rhs);
+    void addNumber(std::vector<int>::const_iterator begin, std::vector<int>::const_iterator end);
     unsigned int longestSpan(void) const;
     unsigned int shortestSpan(void) const;
 
