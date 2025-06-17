@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MutantStack.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hirwatan <hirwatan@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: hirwatan <hirwatan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 12:13:12 by hirwatan          #+#    #+#             */
-/*   Updated: 2025/06/16 11:00:17 by hirwatan         ###   ########.fr       */
+/*   Updated: 2025/06/17 11:16:24 by hirwatan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,5 @@ public:
     const_iterator begin() const { return this->c.begin(); }
     const_iterator end() const { return this->c.end(); }
 };
+
 #endif
