@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hirwatan <hirwatan@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: hirwatan <hirwatan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 19:39:37 by hirwatan          #+#    #+#             */
-/*   Updated: 2025/06/16 20:12:41 by hirwatan         ###   ########.fr       */
+/*   Updated: 2025/06/17 13:50:33 by hirwatan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ BitcoinExchange::BitcoinExchange(const std::string &datavaseFile)
     }
 
     std::string line;
-    std::getline(file, line); // 最初だけ読み飛ばす
+    std::getline(file, line);
 
     while (std::getline(file, line))
     {
@@ -45,89 +45,95 @@ void BitcoinExchange::print(void)
         std::cout << it->first << ":" << it->second << std::endl;
     }
 }
-// bool BitcoinExchange::isValidDate(const std::string &date) const
-// {
-//     if (date.length() != 10)
-//         return false;
-    
-//     if (date[4] != '-' || date[7] != '-')
-//         return false;
-    
-//     // 年、月、日の範囲チェックなども追加すべき
-//     return true;
-// }
+bool BitcoinExchange::isValidDate(const std::string &date) const
+{
+    if (date.length() != 10)
+        return false;
 
-// bool BitcoinExchange::isValidValue(const float value) const
-// {
-//     return value >= 0 && value <= 1000;
-// }
+    if (date[4] != '-' || date[7] != '-')
+        return false;
+    return true;
+}
 
-// std::string BitcoinExchange::findClosestDate(const std::string &date) const
-// {
-//     std::map<std::string, float>::const_iterator it = database.upper_bound(date);
-//     if (it == database.begin())
-//         return it->first;
-//     return (--it)->first;
-// }
+bool BitcoinExchange::isValidValue(const float value) const
+{
+    return value >= 0 && value <= 1000;
+}
 
-// void BitcoinExchange::processInputFile(const std::string &inputFile)
-// {
-//     std::ifstream file(inputFile.c_str());
-//     if (!file.is_open()) {
-//         std::cout << "Error: could not open file." << std::endl;
-//         return;
-//     }
+std::string BitcoinExchange::findClosestDate(const std::string &date) const
+{
+    std::map<std::string, float>::const_iterator it = _database.upper_bound(date);
+    if (it == _database.begin())
+        return it->first;
+    return (--it)->first;
+}
 
-//     std::string line;
-//     std::getline(file, line); // ヘッダー行をスキップ
-    
-//     while (std::getline(file, line)) {
-//         std::size_t pipePos = line.find(" | ");
-//         if (pipePos == std::string::npos) {
-//             std::cout << "Error: bad input => " << line << std::endl;
-//             continue;
-//         }
-        
-//         std::string date = line.substr(0, pipePos);
-//         std::string valueStr = line.substr(pipePos + 3);
-        
-//         if (!isValidDate(date)) {
-//             std::cout << "Error: bad input => " << date << std::endl;
-//             continue;
-//         }
-        
-//         char* endptr;
-//         float value = std::strtof(valueStr.c_str(), &endptr);
-        
-//         if (*endptr != '\0') {
-//             std::cout << "Error: not a number." << std::endl;
-//             continue;
-//         }
-        
-//         if (value < 0) {
-//             std::cout << "Error: not a positive number." << std::endl;
-//             continue;
-//         }
-        
-//         if (!isValidValue(value)) {
-//             std::cout << "Error: too large a number." << std::endl;
-//             continue;
-//         }
-        
-//         std::string closestDate = date;
-//         std::map<std::string, float>::iterator it = database.find(date);
-        
-//         if (it == database.end()) {
-//             // 日付が見つからない場合は最も近い日付を使用
-//             if (date < database.begin()->first) {
-//                 std::cout << "Error: no bitcoin price available before " << database.begin()->first << std::endl;
-//                 continue;
-//             }
-//             closestDate = findClosestDate(date);
-//             it = database.find(closestDate);
-//         }
-        
-//         float result = value * it->second;
-//         std::cout << date << " => " << value << " = " << result << std::endl;
-//     }
-// }
+void BitcoinExchange::processInputFile(const std::string &inputFile)
+{
+    std::ifstream file(inputFile.c_str());
+    if (!file.is_open())
+    {
+        std::cout << "Error: could not open file." << std::endl;
+        return;
+    }
+
+    std::string line;
+    std::getline(file, line);
+
+    while (std::getline(file, line))
+    {
+        std::size_t pipePos = line.find(" | ");
+        if (pipePos == std::string::npos)
+        {
+            std::cout << "Error: bad input => " << line << std::endl;
+            continue;
+        }
+
+        std::string date = line.substr(0, pipePos);
+        std::string valueStr = line.substr(pipePos + 3);
+
+        if (!isValidDate(date))
+        {
+            std::cout << "Error: bad input => " << date << std::endl;
+            continue;
+        }
+
+        char *endptr;
+        float value = std::strtof(valueStr.c_str(), &endptr);
+
+        if (*endptr != '\0')
+        {
+            std::cout << "Error: not a number." << std::endl;
+            continue;
+        }
+
+        if (value < 0)
+        {
+            std::cout << "Error: not a positive number." << std::endl;
+            continue;
+        }
+
+        if (!isValidValue(value))
+        {
+            std::cout << "Error: too large a number." << std::endl;
+            continue;
+        }
+
+        std::string closestDate = date;
+        std::map<std::string, float>::iterator it = _database.find(date);
+
+        if (it == _database.end())
+        {
+            if (date < _database.begin()->first)
+            {
+                std::cout << "Error: no bitcoin price available before " << _database.begin()->first << std::endl;
+                continue;
+            }
+            closestDate = findClosestDate(date);
+            it = _database.find(closestDate);
+        }
+
+        float result = value * it->second;
+        std::cout << date << " => " << value << " = " << result << std::endl;
+    }
+}

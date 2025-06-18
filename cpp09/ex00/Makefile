@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hirwatan <hirwatan@student.42tokyo.jp>     +#+  +:+       +#+         #
+#    By: hirwatan <hirwatan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/12 19:13:38 by hirwatan          #+#    #+#              #
-#    Updated: 2025/06/16 19:56:06 by hirwatan         ###   ########.fr        #
+#    Updated: 2025/06/18 11:08:37 by hirwatan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 

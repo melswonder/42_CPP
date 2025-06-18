@@ -3,26 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hirwatan <hirwatan@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: hirwatan <hirwatan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 19:13:36 by hirwatan          #+#    #+#             */
-/*   Updated: 2025/06/16 19:54:22 by hirwatan         ###   ########.fr       */
+/*   Updated: 2025/06/18 11:08:35 by hirwatan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 #include <vector>
 
-int main(int argc,char *argv[])
+int main(int argc, char *argv[])
 {
-    if(argc != 2)
+    if (argc != 2)
     {
         std::cout << "Error: could not open file." << std::endl;
         return (1);
     }
     (void)argv;
     BitcoinExchange exchange("data.csv");
-    exchange.print();
+    exchange.processInputFile(argv[1]);
+    // exchange.print();
 }
 // date | value
 // 2011-01-03 | 3
@@ -34,7 +35,6 @@ int main(int argc,char *argv[])
 // 2001-42-42
 // 2012-01-11 | 1
 // 2012-01-11 | 2147483648
-
 
 // $> ./btc
 // Error: could not open file.
