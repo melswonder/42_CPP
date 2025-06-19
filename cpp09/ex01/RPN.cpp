@@ -6,7 +6,7 @@
 /*   By: hirwatan <hirwatan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 11:08:54 by hirwatan          #+#    #+#             */
-/*   Updated: 2025/06/18 18:08:37 by hirwatan         ###   ########.fr       */
+/*   Updated: 2025/06/19 18:34:22 by hirwatan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ std::vector<std::string> RPN::split(char *str)
 
 void RPN::calculate(void)
 {
-    std::stack<int> stack;
+    std::stack<float> stack;
     
     for (std::vector<std::string>::iterator it = _str.begin(); it != _str.end(); ++it)
     {
@@ -52,7 +52,7 @@ void RPN::calculate(void)
             continue;
         if (isdigit(token[0]) || (token.size() > 1 && token[0] == '-' && isdigit(token[1])))
         {
-            stack.push(std::atoi(token.c_str()));
+            stack.push(std::atof(token.c_str()));
         }
         else if (token == "+" || token == "-" || token == "*" || token == "/")
         {
@@ -61,9 +61,9 @@ void RPN::calculate(void)
                 std::cerr << "Error: insufficient operands for operation" << std::endl;
                 return;
             }
-            int rhs = stack.top();
+            float rhs = stack.top();
             stack.pop();
-            int lhs = stack.top();
+            float lhs = stack.top();
             stack.pop();
             if (token == "+")
                 stack.push(lhs + rhs);
