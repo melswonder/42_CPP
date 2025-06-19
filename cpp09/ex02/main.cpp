@@ -6,7 +6,7 @@
 /*   By: hirwatan <hirwatan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 18:34:47 by hirwatan          #+#    #+#             */
-/*   Updated: 2025/06/19 14:14:57 by hirwatan         ###   ########.fr       */
+/*   Updated: 2025/06/19 19:16:59 by hirwatan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,15 @@ void TEST_VECTOR(int argc, char *argv[])
 
     clock_gettime(CLOCK_MONOTONIC, &start);
     vector = P.convert_vector(argc, argv);
+    P.Mergeinsertionsort(vector);
     clock_gettime(CLOCK_MONOTONIC, &end);
 
     double elapsed = (end.tv_sec - start.tv_sec) * 1000000.0 + (end.tv_nsec - start.tv_nsec) / 1000.0;
     std::cout << "Time to process a range of " << elementCount
               << " elements with std::vector<int> : "
               << std::fixed << std::setprecision(5) << elapsed << " μs" << std::endl;
-
     std::cout << vector << std::endl;
+    std::cout << "count =" << P.getcount() << std::endl;
 }
 
 void TEST_LIST(int argc, char *argv[])
