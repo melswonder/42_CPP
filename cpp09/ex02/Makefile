@@ -5,23 +5,23 @@
 #                                                     +:+ +:+         +:+      #
 #    By: hirwatan <hirwatan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/06/12 14:26:44 by hirwatan          #+#    #+#              #
-#    Updated: 2025/06/12 19:11:32 by hirwatan         ###   ########.fr        #
+#    Created: 2025/06/18 18:34:45 by hirwatan          #+#    #+#              #
+#    Updated: 2025/06/19 12:12:17 by hirwatan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= Array
-CXX		= c++
+NAME	= PmergeMe
+CC		= c++
 FLAGS	= -Wall -Wextra -Werror -std=c++98
 OBJS	= $(SECS:.cpp=.o)
 SRCS	= main.cpp\
-		  
+		  PmergeMe.cpp
 
 
 all: $(NAME)
 
 $(NAME): $(SRCS)
-	 $(CXX) $(FLAGS) $(SRCS) -o $(NAME)
+	 $(CC) $(FLAGS) $(SRCS) -o $(NAME)
 
 clean:
 	rm -rf $(OBJS)

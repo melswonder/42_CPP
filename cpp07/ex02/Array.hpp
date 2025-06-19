@@ -6,7 +6,7 @@
 /*   By: hirwatan <hirwatan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 12:23:07 by hirwatan          #+#    #+#             */
-/*   Updated: 2025/06/12 14:36:45 by hirwatan         ###   ########.fr       */
+/*   Updated: 2025/06/12 15:41:51 by hirwatan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ public:
             _elements[i] = other._elements[i];
         }
     }
+
     Array &operator=(const Array &other)
     {
         if (this != &other)
@@ -61,6 +62,7 @@ public:
             throw std::exception();
         return _elements[index];
     }
+
     unsigned int size() const
     {
         return _size;
